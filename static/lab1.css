@@ -1,7 +1,8 @@
 img {
     height: 417px;
     border-radius: 20px;
-    margin: 35px;
+    margin: 10px auto 20px;
+    display: block;
 }
 body {
     background-color: rgb(249, 193, 241);
@@ -23,8 +24,15 @@ footer {
     font-size: 16pt;
     font-style: italic;
     text-align: right;
+    margin: 0%;
 }
 h1 {
-    margin: 35px;
+    margin: 15px;
 
+}
+p {
+    margin: 15px;
+}
+a {
+    margin: 15px;
 }
