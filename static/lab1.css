@@ -1,0 +1,30 @@
+img {
+    height: 417px;
+    border-radius: 20px;
+    margin: 35px;
+}
+body {
+    background-color: rgb(249, 193, 241);
+    color: rgb(37, 7, 142);
+    font-family: Arial; 
+    margin: 0px;
+}
+header {
+    background: purple;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 16pt;
+    font-style: italic;
+}
+footer {
+    background: purple;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 16pt;
+    font-style: italic;
+    text-align: right;
+}
+h1 {
+    margin: 35px;
+
+}
