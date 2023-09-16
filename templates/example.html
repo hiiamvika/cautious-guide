@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крышева В.Д. {{lab2}}</title>
+    <title>{% if name %} {{name}} {% else %} Анонимус {% endif %} {{lab2}}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 </head>
 <body>
     <header>
-        WEB-программирование, часть 2. {{lab2}}
+        WEB-программирование, часть 2. {% if lab2 %}Лабораторная работа 2{% endif %}
     </header>
 
     <main>
@@ -18,7 +18,19 @@
     </main>
 
     <footer>
-        &copy; {{name}},{{group}}, {{course}}, 2023
+        &copy; 
+        {% if name %}
+        {{name}},
+        {% else %}
+        Анонимус
+        {% endif %}
+        {% if group %}
+        {{group}},
+        {% else %}
+        прикол,
+        {% endif %}
+        {{course}}, 
+        2023
     </footer>
     
 </body>
