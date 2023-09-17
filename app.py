@@ -7,7 +7,14 @@ def example():
     lab2 = 'Лабораторная работа 2'
     group = 'ФБИ-12'
     course = '3 курс'
-    return render_template('example.html', name=name, lab2=lab2, group=group,course=course)
+    fruits= [
+        {'name': 'яблоки', 'price': 100},
+        {'name': 'груши', 'price': 120},
+        {'name': 'апельсины', 'price': 80},
+        {'name': 'манадарины', 'price': 95},
+        {'name': 'манго', 'price': 321}
+    ]
+    return render_template('example.html', name=name, lab2=lab2, group=group,course=course, fruits=fruits)
 
 @app.route("/")
 @app.route("/index")
