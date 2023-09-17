@@ -14,7 +14,19 @@ def example():
         {'name': 'манадарины', 'price': 95},
         {'name': 'манго', 'price': 321}
     ]
-    return render_template('example.html', name=name, lab2=lab2, group=group,course=course, fruits=fruits)
+    books = [
+        {'author': 'Алексей Иванов', 'name': '«Бронепароходы»', 'genre': 'Исторический роман', 'pages': '700 стр.'},
+        {'author': 'Элизабет Вуртцель', 'name': '«Нация прозака»', 'genre': 'Современные зарубежные романы', 'pages': '470 стр.'},
+        {'author': 'Ма Боюн', 'name': '«Зоопарк на краю света»', 'genre': 'Исторический роман', 'pages': '300 стр.'},
+        {'author': 'Павел Пепперштейн', 'name': '«Бархатная кибитка»', 'genre': 'Проза', 'pages': '640 стр.'},
+        {'author': 'Элизабет Страут', 'name': '«О, Уильям!»', 'genre': 'Современная проза', 'pages': '288 стр.'},
+        {'author': 'Стиг Дагерман', 'name': '«Немецкая осень»', 'genre': 'Современная проза', 'pages': '256 стр.'},
+        {'author': 'Селеста Инг', 'name': '«Наши пропавшие сердца»', 'genre': ' Роман', 'pages': '352 стр.'},
+        {'author': 'Ханья Янагихара', 'name': '«До самого рая»', 'genre': 'Современный роман', 'pages': '576 стр.'},
+        {'author': 'Одри Мэги', 'name': '«Колония»', 'genre': 'Исторический роман', 'pages': '300 стр.'},
+        {'author': 'Оливия Мэннинг', 'name': '«Величайшее благо»', 'genre': 'Современная классика', 'pages': '350 стр.'},
+    ]
+    return render_template('example.html', name=name, lab2=lab2, group=group,course=course, fruits=fruits, books=books)
 
 @app.route("/")
 @app.route("/index")
