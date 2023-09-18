@@ -43,7 +43,7 @@ def start():
 
 @app.route("/menu")
 def menu():
-    return """
+    return '''
 <!doctype html>
 <html>
     <head>
@@ -57,14 +57,15 @@ def menu():
 
            <h2>Меню</h2>
 
-            <a href="http://127.0.0.1:5000/lab1">Первая лабораторная</a>
+            <a href="/lab1">Первая лабораторная</a><br>
+            <a href="/lab2">Вторая лабораторная</a><br>
 
         <footer>
             &copy; Крышева В.Д.,ФБИ-12, 3 курс, 2023
         </footer>
          </body>
 </html>
-"""
+'''
 @app.route("/lab1/tree")
 def tree():
     return '''

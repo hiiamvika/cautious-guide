@@ -26,13 +26,12 @@ footer {
     text-align: right;
     margin: 0%;
 }
-h1 {
-    margin: 15px;
-
-}
 p {
     margin: 15px;
 }
 a {
     margin: 15px;
+}
+main {
+    margin: 10px 20px;
 }
