@@ -5,6 +5,10 @@ app = Flask(__name__)
 def lab2():
     return render_template('lab2.html')
 
+@app.route("/lab2/random")
+def random():
+    return render_template('random.html')
+
 @app.route("/lab2/example")
 def example():
     name = 'Крышева В.Д.'
