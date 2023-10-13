@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block main %}
+        
+        {% if name and age and from_where and where and date %}
+
+        <h1 style="text-align: center;">Ваш билет</h1>
+
+        <div style="border: 2px solid;border-radius: 8px; background-color: fuchsia; color: rgb(25, 9, 66);border-color: darkmagenta;font-size: 17px;padding: 15px;height: min-content;width: 446px;margin: 10px auto;font-weight: bold;text-align: center;">
+            <div>Имя пассажира: {{ name }}</div>
+            <div>Тип билета: {{ 'Детский' if type == 'child'
+                else 'Взрослый' }} </div>
+            <div>Полка: {{'нижняя' if shelf == 'bottom' or 
+                'верхняя' if shelf == 'top' or
+                'верхняя боковая' if shelf == 'top_side'
+                else 'нижняя боковая'}} </div>
+            <div>Багаж: {{ 'С багажом' if baggage == 'y'
+                else 'Без багажа' }} </div>
+            <div>Возраст пассажира: {{ age }} </div>
+            <div>Откуда: {{ from_where }} </div>
+            <div>Куда: {{ where }}</div>
+            <div>Дата: {{ date }} </div>
+        </div>
+
+        <div><a href="/lab3/ticket">Отменить билет</a></div>
+
+        {% else %}
+        <h1 style="text-align: center;">Покупка железнодорожного билета</h1>
+        <form style="border: 2px solid;border-radius: 8px; background-color: fuchsia; color: rgb(32, 19, 61);border-color: darkmagenta;font-size: 17px;padding: 15px;height: min-content;width: 446px;margin: 10px auto;font-weight: bold;text-align: center;">
+            <label>ФИО пассажира:</label>
+            <div>
+                <input type="text" name="name" value="{{ name or '' }}">
+                {{ errors.name }}
+            </div>
+
+            <div>Тип билета:</div>
+            <label>
+                <input type="radio" value="adult" name="type" checked and 'selected'>Взрослый
+            </label>
+            <label>
+                <input type="radio" value="child" name="type" and 'selected'>Детский
+            </label>
+
+            <div>
+                <label>Полка:</label>
+                <select name="shelf">
+                    <option value="bottom" {{ shelf == 'bottom' and 'selected' }}>Нижняя</option>
+                    <option value="top" {{ shelf == 'top' and 'selected' }}>Верхняя</option>
+                    <option value="top_side" {{ shelf == 'top_side' and 'selected' }}>Верхняя боковая</option>
+                    <option value="bottom_side" {{ shelf == 'bottom_side' and 'selected' }}>Нижняя боковая</option>
+                </select>
+            </div>
+
+            <div>Багаж:</div>
+            <label>
+                <input type="radio" value="y" name="baggage" checked>Есть
+            </label>
+            <label>
+                <input type="radio" value="n" name="baggage">Нет
+            </label><br>
+
+            <label>Возраст пассажира:</label>
+            <div>
+                <input type="number" name="age" value="{{ age or '' }}" min="18" max="120">
+                {{ errors.age }}
+            </div>
+
+            <label>Пункт выезда:</label>
+            <div>
+                <input type="text" name="from_where" value="{{ from_where or '' }}">
+                {{ errors.from_where }}
+            </div>
+
+            <label>Пункт назначения:</label>
+            <div>
+                <input type="text" name="where" value="{{ where or '' }}">
+                {{ errors.where }}
+            </div>
+
+            <div>
+                <label>Дата поездки:</label>
+                <input type="date" name="date" value="{{ date or '' }}">
+                {{ errors.date }}
+            </div>
+
+            <div>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    
+        {% endif %}
+{% endblock %}
