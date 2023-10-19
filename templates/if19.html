@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 2{% endblock %}
+
+{% block main %}
+    {% if num1 and num2 and num3 and num4 %}
+    <div>Порядковый номер отличного числа: {{ pornum }}</div>
+    {% else %}
+    <form action="/if"> 
+    <label>Ведите первое число:</label>
+                <div>
+                    <input type="number" name="num1">
+                </div>
+    <label>Ведите второе число:</label>
+                <div>
+                    <input type="number" name="num2">
+                </div>
+    <label>Ведите третье число:</label>
+                <div>
+                    <input type="number" name="num3">
+                </div> 
+    <label>Ведите четвертое число:</label>
+                <div>
+                    <input type="number" name="num4">
+                </div>
+    <div>
+        <button type="submit">Отправить</button>
+    </div>    
+    </form>
+{% endif %}   
+{% endblock %}
