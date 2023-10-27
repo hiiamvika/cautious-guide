@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4{% endblock %}
+
+{% block main %}
+    <div style="font-size: 25px; text-align: center;">{{msg2}} 🌾</div>
+    <div style="font-size: 30px;text-align: center;">Заказ успешно сформирован. Вы заказали зерно. Вес: {{ weight }} т. Сумма к оплате: {{ price }} руб.</div>
+    <a href="/lab4/zerno">Вернуться к заказу</a>
+{% endblock %}

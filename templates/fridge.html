@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4. Группы{% endblock %}
+
+{% block main %}
+
+    <h2 style="text-align: center;">Холодильник</h2>
+
+    <form method="POST" style="border: 2px solid;border-radius: 8px; background-color: rgb(196, 215, 255); color: rgb(38, 4, 161);border-color: darkmagenta;font-size: 17px;padding: 15px;height: min-content;width: 446px;margin: 10px auto;font-weight: bold;text-align: center;">
+        <div>Установить температуру холодильника</div>
+        <img src=http://liubavyshka.my1.ru/_ph/107/2/381049314.gif?1698419072>
+        <div>
+            <label>
+                <input type="number" name="temperature" 
+                id="temperature" placeholder="Введите температуру" value="{{temperature or ''}} ">
+            </label>
+            <div style="color: rgb(39, 0, 178);">{{ msg }}</div>
+        </div>
+
+        <div>
+            <button type="submit" style="margin-top: 20px;">Установить температуру</button>
+        </div>
+    </form>
+
+{% endblock %}
+

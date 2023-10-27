@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4{% endblock %}
+
+{% block main %}
+
+   <h1 style="text-align: center;">Заказ зерна</h1>
+
+   <form method="POST" style="border: 2px solid;border-radius: 8px; background-color: rgb(215, 141, 12); color: azure;border-color: darkmagenta;font-size: 17px;padding: 15px;height: min-content;width: 446px;margin: 10px auto;font-weight: bold;text-align: center;">
+    <h1>🌾</h1>
+    <div style="margin: 30px;">
+        <label for="zerno">Выбор вида зерна:</label>
+        <select name="zerno">
+            <option value="barley">ячмень</option>
+            <option value="oats">овёс</option>
+            <option value="wheat">пшеница</option>
+            <option value="rye">рожь</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="weight">Выберите массу в тоннах:</label>
+        <input type="number" name="weight" value="{{ weight or '' }}">
+    </div>
+
+    <span style="color: brown;">{{ msg }}</span>
+
+    <div>
+        <button type="submit" style="margin-top: 20px;">Купить</button>
+    </div>
+   </form>
+{% endblock %}
