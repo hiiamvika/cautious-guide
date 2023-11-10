@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+<div style = "background: white;font-size: 20px;display: flex;text-align: center;">
+    <a style="margin: 3%;font-weight: bold;" href="/lab5">
+        База знаний
+    </a>
+    <div style="margin: 3%;padding-left: 87px;text-decoration: none;">
+        <a href="/lab5/articles_all">Просмотреть заметки</a>
+        <a href="/lab5/new_article">Создать заметку</a>
+    </div>
+    <div style="margin: 3%;display: flex;">
+        <a href="/lab5/login" style="padding-right: 50px;">Логин</a>
+        <a href="/lab5/register">Регистрация</a>
+        <div style="padding-left: 50px;">{{username}}</div>
+    </div>
+</div>
+<div>
+    <h1>{{ article_title}}</h1>
+    {% for paragraph in article_text %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

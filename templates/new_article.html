@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+<div style = "background: white;font-size: 20px;display: flex;text-align: center;">
+    <a style="margin: 3%;font-weight: bold;" href="/lab5">
+        База знаний
+    </a>
+    <div style="margin: 3%;padding-left: 87px;text-decoration: none;">
+        <a href="/lab5/articles_all">Просмотреть заметки</a>
+        <a href="/lab5/new_article">Создать заметку</a>
+    </div>
+    <div style="margin: 3%;display: flex;">
+        <a href="/lab5/login" style="padding-right: 50px;">Логин</a>
+        <a href="/lab5/register">Регистрация</a>
+        <div style="padding-left: 50px;">{{username}}</div>
+    </div>
+</div>
+<div>
+    <h1 style="text-align: center;">Новая заметка</h1>
+    <form method="post" style="border: 2px solid;border-radius: 8px; background-color: rgb(249, 220, 249); color: rgb(32, 19, 61);border-color: darkmagenta;font-size: 17px;padding: 15px;height: min-content;width: 446px;margin: 10px auto;font-weight: bold;text-align: center; display: grid;">
+        <input type="text" name="title_article" placeholder="Название статьи">
+        <div style="color: brown; padding: 20px; height: 35px;width:auto;">{{errors}}</div>
+        <textarea name="text_article" placeholder="Текст статьи" rows="20">
+        </textarea>
+        <input type="submit" value="Apply">
+    </form>
+</div>
+{% endblock %}
