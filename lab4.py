@@ -96,31 +96,6 @@ def zernoOK():
     return render_template('zernoOK.html')
 
 
-# @lab4.route('/lab4/cookies', methods=['GET', 'POST'])
-# def cookies():
-#     resp = make_response(render_template('cookies.html'))
-
-#     msg = ''
-#     color = request.form.get('color')
-#     b_color = request.form.get('background-color')
-#     f_size = request.form.get('font-size')
-#     if color == b_color:
-#          msg = 'Не может быть текст и фон одним цветом'
-#          return render_template('cookies.html', msg = msg)
-    
-#     if not (int(f_size) >= 5) and (int(f_size)<= 30):
-#         msg = 'Размер текста должен быть от 5px до 30px'
-#         return render_template('cookies.html', msg = msg)
-    
-#     if color and b_color and f_size:
-#         resp.set_cookie('color', color)
-#         resp.set_cookie('background-color', b_color)
-#         resp.set_cookie('font-size', f"{f_size}px")
-#     return resp
-
-
-
-
 @lab4.route("/lab4/cookies", methods=['GET', 'POST'])
 def cookies():
     if request.method =='GET':
