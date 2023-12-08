@@ -7,7 +7,7 @@ from flask_login import login_user, login_required, current_user,logout_user
 lab6 = Blueprint("lab6",__name__)
 
 @lab6.route("/lab6/check")
-def main():
+def main1():
     my_users = users.query.all()
     print(my_users)
     return "result in console!"
