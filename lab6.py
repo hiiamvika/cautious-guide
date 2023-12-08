@@ -2,7 +2,7 @@ from flask import Blueprint,redirect, url_for, render_template, request, session
 from Db import db
 from Db.models import users, articles
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user, login_required, current_user
+from flask_login import login_user, login_required, current_user,logout_user
 
 lab6 = Blueprint("lab6",__name__)
 
@@ -21,10 +21,12 @@ def all_articles():
 
 
 @lab6.route("/lab6")
-def main1():
-    visibleUser = "Anon"
-    visibleUser = current_user.username
-    return render_template('lab6.html', visibleUser = visibleUser)
+def main():
+    try:
+        username = (users.query.filter_by(id=current_user.id).first()).username
+        return render_template("lab6.html", username = username)
+    except:
+         return render_template("lab6.html", username = "Аноним")
 
 
 @lab6.route("/lab6/register", methods=['GET', 'POST'])
@@ -53,7 +55,7 @@ def registerPage():
 
     db.session.add(newUser)
     db.session.commit()
-    return("/lab6/login")
+    return redirect("/lab6/login")
 
 
 @lab6.route("/lab6/login", methods=['GET', 'POST'])
@@ -124,12 +126,16 @@ def createArticle():
     return render_template("new_article.html")
 
 
-@lab6.route("/lab5/articles/<string:article_id>")
+@lab6.route("/lab6/articles/<int:article_id>")
 @login_required
 def getArticle(article_id):
+    #достать из токена
     username = (users.query.filter_by(id=current_user.id).first()).username
-    title = articles.query.filter_by(id=article_id).first().title
-    text = articles.query.filter_by(id=article_id).first().article_text
+    myArticle = articles.query.filter_by(id=article_id).first()
+    
+    title = myArticle.title
+    text = myArticle.article_text
+    
     return render_template ("articleN.html", title = title, article_text = text, username = username)
             
 
