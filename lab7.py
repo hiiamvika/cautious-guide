@@ -1,4 +1,4 @@
-from flask import Blueprint,redirect, url_for, render_template, request, session
+from flask import Blueprint,redirect, url_for, render_template, request, session, abort
 
 lab7 = Blueprint("lab7",__name__)
 
@@ -29,7 +29,7 @@ def calculate_price(params):
     milk = params['milk']
     sugar = params['sugar']
 
-    if drink == 'coffe':
+    if drink == 'cofee':
         price = 120
     elif drink == 'black-tea':
         price = 80
@@ -48,7 +48,7 @@ def pay(params):
         return {"result": None, "error": "Неверный номер карты"}
     
     cvv = params['cvv']
-    if len(cvv) != 16 or not cvv.isdigit():
+    if len(cvv) != 3 or not cvv.isdigit():
         return {"result": None, "error": "Неверный номер CVV/CVC"}
     price =  calculate_price(params)
     return {"result": f'С карты {card_num} списано {price} руб', "error": None}
